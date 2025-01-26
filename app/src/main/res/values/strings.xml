@@ -1,0 +1,74 @@
+<resources>
+    <!-- Shared Stings -->
+    <string name="app_name">Divide Dungeon</string>
+    <string name="build">0.1.0</string>
+    <string name="exit">Exit</string>
+    <string name="inventory">Inventory</string>
+
+    <!--Toolbar Strings-->
+    <string name="room">Room: </string>
+    <string name="coins">Coins: </string>
+
+    <!--Title Strings-->
+    <string name="tokens">"Tokens: "</string>
+    <string name="play">PLAY</string>
+    <string name="upgrades">UPGRADE SHOP\n</string>
+
+    <!--Inventory Strings-->
+    <string name="select_an_item">Select an item</string>
+    <string name="weapons">Weapons</string>
+    <string name="use">Use</string>
+    <string name="sell">Sell</string>
+
+    <!-- Usables Strings-->
+    <string name="health_potion">Health Potion</string>
+    <string name="health_potion_desc">Will heal 3 health points.</string>
+    <string name="apple">Apple</string>
+    <string name="apple_desc">Will heal 1 health point.</string>
+    <string name="slow_potion">Slow Potion</string>
+    <string name="slow_potion_desc">Slow the current enemy\'s attacks by 50%</string>
+    <string name="attack_potion">Attack Potion</string>
+    <string name="attack_potion_desc">Inflict 50% more damage to the current enemy</string>
+
+    <!-- Transition Strings-->
+    <string name="treasure">Treasure</string>
+    <string name="shop">Shop</string>
+    <string name="fight">Fight</string>
+    <string name="select_a_path">Select a Path</string>
+
+    <!-- Problem Generation -->
+    <string name="math_type">"Math Type: "</string>
+    <string name="addition">Addition</string>
+    <string name="subtraction">Subtraction</string>
+    <string name="multiplication">Multiplication</string>
+    <string name="division">Division</string>
+    <string name="maximum_damage">".\nMaximum Damage: "</string>
+
+    <!-- Battle Strings -->
+    <string name="rooms_passed">"Rooms passed: "</string>
+    <string name="tokens_earned">"Tokens earned: "</string>
+    <string name="game_over">Game Over!</string>
+    <string name="return_to_title">Return to Title</string>
+
+    <!-- Shop -->
+    <string name="shop_welcome">Welcome to my shop!</string>
+    <string name="buy">Buy</string>
+    <string name="shop_full">Your inventory is full! Please sell something</string>
+    <string name="item_sold">Sold! Feel free to buy something else</string>
+
+    <!-- Weapon Window -->
+    <string name="weapons_menu_desc">Select a weapon to display their stats</string>
+
+    <!-- Upgrade Shop -->
+    <string name="upgrade_shop">Upgrade Shop</string>
+    <string name="upgrade_description">Spend your tokens to unlock permanent upgrades.\nTokens are earned by completing rooms.</string>
+    <string name="health_desc">Increase your max\n health by 1</string>
+    <string name="coins_desc">Increase the coins \nyou start with by 10</string>
+    <string name="damage_desc">Increase your\ndamage by 20%</string>
+    <string name="timer_desc">Add 5 seconds to \nenemy attack timers</string>
+
+    <!-- Treasure -->
+    <string name="treasure_desc">Tap to open your treasure chest!</string>
+    <string name="replace">Replace</string>
+
+</resources>

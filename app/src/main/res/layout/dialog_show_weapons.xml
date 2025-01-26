@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@null">
+
+    <!--Background Image-->
+    <ImageView
+        android:id="@+id/weapon_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:importantForAccessibility="no"
+        android:src="@drawable/dialog_box"/>
+
+
+        <LinearLayout
+        android:id="@+id/show_weapons_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignTop="@id/weapon_bg"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weapons"
+                android:textStyle="bold"
+                style="@style/button_text"/>
+
+            <TextView
+                android:id="@+id/show_weapons_description"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:text="@string/weapons_menu_desc"
+                android:layout_marginVertical="40dp"
+                android:textStyle="bold"
+                style="@style/description_text"
+                android:gravity="center"/>
+
+            <!-- Weapon List -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="550dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/weapon_slot_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:rotation="-90"
+                    android:layout_marginHorizontal="-20dp"
+                    android:src="@drawable/debug"
+                    android:importantForAccessibility="no"/>
+                <ImageButton
+                    android:id="@+id/weapon_slot_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:rotation="-90"
+                    android:layout_marginHorizontal="-20dp"
+                    android:src="@drawable/debug"
+                    android:importantForAccessibility="no" />
+                <ImageButton
+                    android:id="@+id/weapon_slot_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/debug"
+                    android:layout_marginHorizontal="-20dp"
+                    android:rotation="-90"
+                    android:background="@null"
+                    android:importantForAccessibility="no"/>
+            </LinearLayout>
+    </LinearLayout>
+
+    <!-- Replace Button -->
+    <RelativeLayout
+        android:id="@+id/replace_button_root"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_above="@id/close_button_root"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true">
+        <ImageButton
+            android:id="@+id/replace_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@null"
+            android:gravity="center"
+            android:src="@drawable/button_medium_inactive"
+            android:importantForAccessibility="no" />
+        <TextView
+            android:text="Replace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_alignTop="@id/replace_button"
+            android:layout_alignBottom="@id/replace_button"
+            style="@style/button_text"/>
+    </RelativeLayout>
+
+    <!-- Exit Button -->
+    <RelativeLayout
+        android:id="@+id/close_button_root"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignBottom="@id/weapon_bg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp">
+        <ImageButton
+            android:id="@+id/close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@null"
+            android:gravity="center"
+            android:src="@drawable/button_medium"
+            android:importantForAccessibility="no" />
+        <TextView
+            android:text="@string/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_alignTop="@id/close_button"
+            android:layout_alignBottom="@id/close_button"
+            style="@style/button_text"/>
+    </RelativeLayout>
+</RelativeLayout>

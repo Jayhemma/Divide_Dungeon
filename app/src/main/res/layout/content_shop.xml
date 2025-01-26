@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background -->
+    <ImageView
+        android:id="@+id/shop_backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/debug" />
+
+    <!--Dialog Box -->
+    <RelativeLayout
+        android:id="@+id/dialog_bubble"
+        android:layout_width="500dp"
+        android:layout_height="350dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/shop_shelf"
+        android:layout_marginBottom="40dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:importantForAccessibility="no"
+            android:src="@drawable/shopkeeper_box"
+            />
+        <TextView
+            android:id="@+id/shop_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/shop_welcome"
+            style="@style/description_text"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <Space
+        android:id="@+id/shop_space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:importantForAccessibility="no" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/shop_space"
+        android:src="@drawable/shop_keeper"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="150dp"
+        android:importantForAccessibility="no"
+        />
+
+    <!--Holds the list of items-->
+    <LinearLayout
+        android:id="@+id/shop_shelf"
+        android:gravity="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/shop_space"
+        android:layout_marginBottom="-80dp">
+
+        <!--Item 0-->
+        <RelativeLayout
+            android:id="@+id/item_layout_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/item_button_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/debug"
+                tools:ignore="SpeakableTextPresentCheck" />
+            <ImageView
+                android:id="@+id/item_pricebox_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_button_0"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/costbox"/>
+            <TextView
+                android:id="@+id/item_price_0"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/item_pricebox_0"
+                android:layout_alignBottom="@id/item_pricebox_0"
+                android:layout_alignStart="@id/item_pricebox_0"
+                android:layout_alignEnd="@id/item_pricebox_0"
+                style="@style/description_text" />
+        </RelativeLayout>
+
+        <!--Item 1-->
+        <RelativeLayout
+            android:id="@+id/item_layout_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp">
+            <ImageButton
+                android:id="@+id/item_button_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/debug"
+                android:background="@null"/>
+            <ImageView
+                android:id="@+id/item_pricebox_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_button_1"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/costbox"/>
+            <TextView
+                android:id="@+id/item_price_1"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/item_pricebox_1"
+                android:layout_alignBottom="@id/item_pricebox_1"
+                android:layout_alignStart="@id/item_pricebox_1"
+                android:layout_alignEnd="@id/item_pricebox_1"
+                style="@style/description_text" />
+        </RelativeLayout>
+
+        <!--Item 2-->
+        <RelativeLayout
+            android:id="@+id/item_layout_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/item_button_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/debug"
+                android:background="@null"/>
+            <ImageView
+                android:id="@+id/item_pricebox_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_button_2"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/costbox"/>
+            <TextView
+                android:id="@+id/item_price_2"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/item_pricebox_2"
+                android:layout_alignBottom="@id/item_pricebox_2"
+                android:layout_alignStart="@id/item_pricebox_2"
+                android:layout_alignEnd="@id/item_pricebox_2"
+                style="@style/description_text" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--Buy button-->
+    <ImageButton
+        android:id="@+id/item_buy_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/shop_buttons_root"
+        android:src="@drawable/button_medium_inactive"
+        android:gravity="center"
+        android:background="@null"
+        android:layout_marginBottom="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buy"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/item_buy_button"
+        android:layout_alignBottom="@id/item_buy_button"
+        android:layout_alignStart="@id/item_buy_button"
+        android:layout_alignEnd="@id/item_buy_button"
+        style="@style/button_text"/>
+
+    <RelativeLayout
+        android:id="@+id/shop_buttons_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:paddingVertical="20dp"
+        android:gravity="center_horizontal">
+        <!-- Exit Button-->
+        <ImageButton
+            android:id="@+id/exit_button"
+            android:background="@null"
+            android:src="@drawable/button_short"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:layout_marginEnd="@dimen/margin_from_bottom"/>
+        <TextView
+            android:id="@+id/inventory_exit_text"
+            android:text="@string/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:gravity="center"
+            android:layout_alignTop="@id/exit_button"
+            android:layout_alignBottom="@id/exit_button"
+            android:layout_alignStart="@id/exit_button"
+            android:layout_alignEnd="@id/exit_button"
+            style="@style/button_text"/>
+
+        <!-- Inventory Button-->
+        <ImageButton
+            android:id="@+id/inventory_button"
+            android:background="@null"
+            android:src="@drawable/button_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:layout_toEndOf="@id/exit_button"/>
+        <TextView
+            android:text="@string/inventory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:gravity="center"
+            android:layout_alignStart="@id/inventory_button"
+            android:layout_alignEnd="@id/inventory_button"
+            android:layout_alignTop="@id/inventory_button"
+            android:layout_alignBottom="@id/inventory_button"
+            style="@style/button_text"/>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background -->
+    <ImageView
+        android:id="@+id/treasure_backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/debug" />
+
+
+    <!-- Treasure Chest -->
+    <ImageButton
+        android:id="@+id/treasure_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:importantForAccessibility="no"
+        android:src="@drawable/chest_closed"
+        android:background="@null"/>
+
+    <!-- New Weapon Description -->
+    <TextView
+        android:id="@+id/weapon_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/treasure_button"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="@string/treasure_desc"
+        style="@style/description_text"
+        />
+
+    <!-- New Weapon View -->
+    <ImageView
+        android:id="@+id/new_weapon"
+        android:layout_width="@dimen/weapon_width"
+        android:layout_height="@dimen/weapon_height"
+        android:layout_above="@id/treasure_button"
+        android:layout_centerHorizontal="true"
+        android:importantForAccessibility="no"
+        android:src="@drawable/debug"
+        android:background="@null"
+        android:visibility="invisible"
+        android:layout_marginBottom="-150dp"/>
+
+    <!-- Replace Button-->
+    <ImageButton
+        android:id="@+id/wep_replace_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/treasure_button"
+        android:layout_alignBottom="@id/treasure_exit_button"
+        android:layout_centerHorizontal="true"
+        android:importantForAccessibility="no"
+        android:visibility="invisible"
+        android:src="@drawable/button_medium"
+        android:background="@null"
+        android:layout_marginBottom="30dp"/>
+    <TextView
+        android:id="@+id/wep_replace_button_text"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/wep_replace_button"
+        android:layout_alignBottom="@id/wep_replace_button"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="@string/replace"
+        style="@style/button_text"/>
+
+    <!-- Exit Button -->
+    <ImageButton
+        android:id="@+id/treasure_exit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:importantForAccessibility="no"
+        android:src="@drawable/button_short"
+        android:background="@null"
+        android:layout_marginBottom="@dimen/margin_from_bottom"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/treasure_exit_button"
+        android:layout_alignBottom="@id/treasure_exit_button"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="@string/exit"
+        style="@style/button_text"/>
+
+
+</RelativeLayout>

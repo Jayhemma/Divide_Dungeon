@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:tag="battle_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background -->
+    <ImageView
+        android:id="@+id/fight_backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/debug" />
+
+    <!-- Mic Icon-->
+    <ImageView
+        android:id="@+id/mic_icon"
+        android:layout_width="@dimen/mic_height_width"
+        android:layout_height="@dimen/mic_height_width"
+        android:layout_alignParentTop="true"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mic_activated"
+        android:visibility="gone"/>
+
+    <!-- Enemy Name -->
+    <TextView
+        android:id="@+id/enemy_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_from_bottom"
+        android:gravity="center"
+        style="@style/description_text"/>
+
+    <!-- Attack Timer -->
+    <ImageView
+        android:id="@+id/timer_box"
+        android:layout_width="@dimen/timer_wd"
+        android:layout_height="wrap_content"
+        android:src="@drawable/timer_window"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/enemy_health"
+        android:layout_marginTop="-4dp"/>
+    <TextView
+        android:id="@+id/attack_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/timer_box"
+        android:layout_alignBottom="@id/timer_box"
+        android:gravity="center"
+        style="@style/button_text"/>
+
+    <!-- Health Bar -->
+    <ProgressBar
+        android:id="@+id/enemy_health"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="@dimen/health_bar_wd"
+        android:layout_height="@dimen/health_bar_ht"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/enemy_name"
+        android:layout_marginTop="19dp"
+        android:progressTint="@color/progress_bar"/>
+
+    <!-- Enemy Display -->
+    <RelativeLayout
+        android:id="@+id/activity_landing"
+        android:layout_width="@dimen/enemy_display_dims"
+        android:layout_height="@dimen/enemy_display_dims"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/space"
+        android:layout_marginBottom="-20dp"
+        android:gravity="bottom">
+        <!-- Bottom Layer-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/display_enemy_bottom"
+            android:importantForAccessibility="no"/>
+        <!-- Top Layer-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/display_enemy_top"
+            android:importantForAccessibility="no"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/display_enemy_hat"
+            android:importantForAccessibility="no"/>
+    </RelativeLayout>
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:id="@+id/weapon_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/space"
+        android:gravity="center_horizontal"
+        android:layout_above="@id/open_inventory">
+
+        <!-- Answer box-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/answer_bg"
+                android:layout_width="@dimen/button_short_wd"
+                android:layout_height="wrap_content"
+                android:src="@drawable/button_short_inactive"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:id="@+id/answer_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/answer_bg"
+                android:layout_alignEnd="@id/answer_bg"
+                android:layout_alignTop="@id/answer_bg"
+                android:layout_alignBottom="@id/answer_bg"
+                android:hint="Answer"
+                android:inputType="number"
+                android:gravity="center"
+                tools:ignore="Autofill"
+                style="@style/button_text"/>
+        </RelativeLayout>
+
+        <!-- Weapon 1 -->
+        <RelativeLayout
+            android:id="@+id/weapon_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/weapon_0_sprite"
+                android:layout_width="@dimen/weapon_width"
+                android:layout_height="@dimen/weapon_height"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:id="@+id/weapon_0_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/weapon_0_sprite"
+                android:layout_alignTop="@id/weapon_0_sprite"
+                android:layout_alignRight="@id/weapon_0_sprite"
+                android:layout_alignBottom="@id/weapon_0_sprite"
+                android:gravity="center"
+                style="@style/button_text"/>
+        </RelativeLayout>
+
+        <!-- Weapon 2 -->
+        <RelativeLayout
+            android:id="@+id/weapon_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/weapon_1_sprite"
+                android:layout_width="@dimen/weapon_width"
+                android:layout_height="@dimen/weapon_height"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:id="@+id/weapon_1_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/weapon_1_sprite"
+                android:layout_alignTop="@id/weapon_1_sprite"
+                android:layout_alignRight="@id/weapon_1_sprite"
+                android:layout_alignBottom="@id/weapon_1_sprite"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                style="@style/button_text"/>
+        </RelativeLayout>
+
+        <!-- Weapon 3 -->
+        <RelativeLayout
+            android:id="@+id/weapon_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/weapon_2_sprite"
+                android:layout_width="@dimen/weapon_width"
+                android:layout_height="@dimen/weapon_height"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:id="@+id/weapon_2_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/weapon_2_sprite"
+                android:layout_alignTop="@id/weapon_2_sprite"
+                android:layout_alignRight="@id/weapon_2_sprite"
+                android:layout_alignBottom="@id/weapon_2_sprite"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                style="@style/button_text"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- Inventory Button -->
+    <ImageButton
+        android:id="@+id/open_inventory"
+        android:layout_width="@dimen/button_medium_wd"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/button_medium"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_from_bottom"
+        android:importantForAccessibility="no"/>
+    <TextView
+        android:id="@+id/open_inventory_text"
+        android:text="@string/inventory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/button_text"
+        android:layout_alignTop="@id/open_inventory"
+        android:layout_alignBottom="@id/open_inventory"
+        android:layout_alignStart="@id/open_inventory"
+        android:layout_alignEnd="@id/open_inventory" />
+</RelativeLayout>

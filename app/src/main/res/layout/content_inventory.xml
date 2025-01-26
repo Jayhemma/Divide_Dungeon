@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:tag="inventory_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/main_backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/debug" />
+
+    <!-- Item description -->
+    <TextView
+        android:id="@+id/inventory_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/select_an_item"
+        style="@style/description_text"/>
+
+    <!-- To help align the inventory slots -->
+    <Space
+        android:id="@+id/center_space"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"/>
+
+    <!--Inventory Rack 1-->
+    <LinearLayout
+        android:id="@+id/inventory_slot_rack_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/center_space"
+        android:gravity="center"
+        android:layout_marginBottom="5dp">
+        <ImageButton
+            android:id="@+id/inventory_slot_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:importantForAccessibility="no"/>
+        <ImageButton
+            android:id="@+id/inventory_slot_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:importantForAccessibility="no" />
+        <ImageButton
+            android:id="@+id/inventory_slot_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:importantForAccessibility="no"/>
+    </LinearLayout>
+
+    <!--Button to be used for selling and using items-->
+    <ImageButton
+        android:id="@+id/inventory_use_or_sell"
+        android:background="@null"
+        android:src="@drawable/button_long_inactive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:layout_alignTop="@id/inventory_description"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Use/Sell Button-->
+    <TextView
+        android:id="@+id/inventory_use_or_sell_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_alignTop="@id/inventory_use_or_sell"
+        android:layout_alignBottom="@id/inventory_use_or_sell"
+        style="@style/button_text"/>
+
+    <!-- Inventory Rack 2 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_above="@id/inventory_exit_root"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center">
+        <ImageButton
+            android:id="@+id/inventory_slot_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:importantForAccessibility="no"/>
+        <ImageButton
+            android:id="@+id/inventory_slot_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:importantForAccessibility="no"/>
+        <ImageButton
+            android:id="@+id/inventory_slot_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:importantForAccessibility="no"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/inventory_exit_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:paddingVertical="20dp"
+        android:gravity="center_horizontal">
+        <!-- Exit Button-->
+        <ImageButton
+            android:id="@+id/inventory_exit"
+            android:background="@null"
+            android:src="@drawable/button_short"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:layout_marginEnd="@dimen/margin_from_bottom"/>
+        <TextView
+            android:id="@+id/inventory_exit_text"
+            android:text="@string/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:gravity="center"
+            android:layout_alignStart="@id/inventory_exit"
+            android:layout_alignEnd="@id/inventory_exit"
+            android:layout_alignTop="@id/inventory_exit"
+            android:layout_alignBottom="@id/inventory_exit"
+            style="@style/button_text"/>
+        <!-- Weapons Button-->
+        <ImageButton
+            android:id="@+id/inventory_show_weapons"
+            android:background="@null"
+            android:src="@drawable/button_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:layout_toEndOf="@id/inventory_exit"/>
+        <TextView
+            android:id="@+id/inventory_weapons_text"
+            android:text="@string/weapons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:gravity="center"
+            android:layout_alignStart="@id/inventory_show_weapons"
+            android:layout_alignEnd="@id/inventory_show_weapons"
+            android:layout_alignTop="@id/inventory_show_weapons"
+            android:layout_alignBottom="@id/inventory_show_weapons"
+            style="@style/button_text"/>
+    </RelativeLayout>
+</RelativeLayout>
