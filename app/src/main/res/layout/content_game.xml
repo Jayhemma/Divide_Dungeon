@@ -41,7 +41,7 @@
     <ImageView
         android:id="@+id/timer_box"
         android:layout_width="@dimen/timer_wd"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/timer_ht"
         android:src="@drawable/timer_window"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/enemy_health"
@@ -64,7 +64,7 @@
         android:layout_height="@dimen/health_bar_ht"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/enemy_name"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="15dp"
         android:progressTint="@color/progress_bar"/>
 
     <!-- Enemy Display -->
@@ -72,9 +72,9 @@
         android:id="@+id/activity_landing"
         android:layout_width="@dimen/enemy_display_dims"
         android:layout_height="@dimen/enemy_display_dims"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/timer_box"
         android:layout_above="@id/space"
-        android:layout_marginBottom="-20dp"
         android:gravity="bottom">
         <!-- Bottom Layer-->
         <ImageView
@@ -118,7 +118,7 @@
             <ImageView
                 android:id="@+id/answer_bg"
                 android:layout_width="@dimen/button_short_wd"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/button_ht"
                 android:src="@drawable/button_short_inactive"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"/>
@@ -214,8 +214,9 @@
     <ImageButton
         android:id="@+id/open_inventory"
         android:layout_width="@dimen/button_medium_wd"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_ht"
         android:background="@null"
+        android:scaleType="fitCenter"
         android:src="@drawable/button_medium"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

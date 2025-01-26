@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Shared -->
+    <dimen name="button_ht">128dp</dimen>
     <dimen name="button_short_wd">256dp</dimen>
     <dimen name="button_medium_wd">384dp</dimen>
+    <dimen name="button_long_wd">512dp</dimen>
     <dimen name="margin_from_bottom">20dp</dimen>
 
 
@@ -13,8 +15,13 @@
     <dimen name="health_bar_wd">400dp</dimen>
     <dimen name="health_bar_ht">40dp</dimen>
     <dimen name="timer_wd">188dp</dimen>
+    <dimen name="timer_ht">104dp</dimen>
     <dimen name="enemy_display_dims">450dp</dimen>
     <dimen name="weapon_width">384dp</dimen>
     <dimen name="weapon_height">128dp</dimen>
+
+    <dimen name="logo_wd">500dp</dimen>
+    <dimen name="token_box_wd">468dp</dimen>
+    <dimen name="token_box_ht">104dp</dimen>
 
 </resources>

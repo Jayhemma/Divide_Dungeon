@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared -->
+    <dimen name="button_ht">71dp</dimen>
+    <dimen name="button_short_wd">141dp</dimen>
+    <dimen name="button_medium_wd">211dp</dimen>
+    <dimen name="button_long_wd">282dp</dimen>
+    <dimen name="margin_from_bottom">15dp</dimen>
+
+
+    <dimen name="path_list_margins">10dp</dimen>
+
+    <!-- content_game -->
+    <dimen name="mic_height_width">32dp</dimen>
+    <dimen name="health_bar_wd">250dp</dimen>
+    <dimen name="health_bar_ht">25dp</dimen>
+    <dimen name="timer_wd">99dp</dimen>
+    <dimen name="timer_ht">32dp</dimen>
+    <dimen name="enemy_display_dims">350dp</dimen>
+    <dimen name="weapon_width">192dp</dimen>
+    <dimen name="weapon_height">64dp</dimen>
+
+    <dimen name="logo_wd">300dp</dimen>
+    <dimen name="token_box_wd">257dp</dimen>
+    <dimen name="token_box_ht">42dp</dimen>
+
+</resources>

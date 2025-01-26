@@ -68,8 +68,9 @@
         android:id="@+id/inventory_use_or_sell"
         android:background="@null"
         android:src="@drawable/button_long_inactive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/button_long_wd"
+        android:layout_height="@dimen/button_ht"
+        android:scaleType="fitCenter"
         android:importantForAccessibility="no"
         android:layout_marginTop="60dp"
         android:gravity="center"
@@ -130,8 +131,9 @@
             android:id="@+id/inventory_exit"
             android:background="@null"
             android:src="@drawable/button_short"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/button_short_wd"
+            android:layout_height="@dimen/button_ht"
+            android:scaleType="fitCenter"
             android:importantForAccessibility="no"
             android:layout_marginEnd="@dimen/margin_from_bottom"/>
         <TextView
@@ -151,8 +153,9 @@
             android:id="@+id/inventory_show_weapons"
             android:background="@null"
             android:src="@drawable/button_medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/button_medium_wd"
+            android:layout_height="@dimen/button_ht"
+            android:scaleType="fitCenter"
             android:importantForAccessibility="no"
             android:layout_toEndOf="@id/inventory_exit"/>
         <TextView

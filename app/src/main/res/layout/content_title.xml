@@ -19,9 +19,9 @@
     <!-- Title -->
     <ImageView
         android:id="@+id/title_logo"
-        android:layout_width="500dp"
+        android:layout_width="@dimen/logo_wd"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/title_play_button"
+        android:layout_above="@id/title_play_button"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:gravity="center"
@@ -33,11 +33,12 @@
     <!-- Play button -->
     <ImageButton
         android:id="@+id/title_play_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/button_short_wd"
+        android:layout_height="@dimen/button_ht"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="@null"
+        android:scaleType="fitCenter"
         android:gravity="center"
         android:src="@drawable/button_short"
         android:importantForAccessibility="no"/>
@@ -59,14 +60,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:layout_alignTop="@id/title_play_button"
-        android:layout_alignParentBottom="true"
-        android:padding="75dp">
+        android:layout_alignParentBottom="true">
         <ImageButton
             android:id="@+id/title_shop_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/button_long_wd"
+            android:layout_height="@dimen/button_ht"
             android:layout_centerHorizontal="true"
             android:background="@null"
+            android:scaleType="fitCenter"
             android:gravity="center"
             android:src="@drawable/button_long"
             android:importantForAccessibility="no"/>
@@ -84,8 +85,8 @@
         <!--Token display-->
         <ImageView
             android:id="@+id/title_shop_coin_box"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/token_box_wd"
+            android:layout_height="@dimen/token_box_ht"
             android:layout_centerHorizontal="true"
             android:background="@null"
             android:src="@drawable/token_window"
