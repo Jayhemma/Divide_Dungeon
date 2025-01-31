@@ -1,7 +1,7 @@
 <resources>
     <!-- Shared Stings -->
     <string name="app_name">Divide Dungeon</string>
-    <string name="build">0.1.0</string>
+    <string name="build">0.1.1</string>
     <string name="exit">Exit</string>
     <string name="inventory">Inventory</string>
 
@@ -61,7 +61,8 @@
 
     <!-- Upgrade Shop -->
     <string name="upgrade_shop">Upgrade Shop</string>
-    <string name="upgrade_description">Spend your tokens to unlock permanent upgrades.\nTokens are earned by completing rooms.</string>
+    <string name="upgrade_description">Spend your tokens to\nunlock permanent
+        upgrades.\nTokens are earned by completing rooms.</string>
     <string name="health_desc">Increase your max\n health by 1</string>
     <string name="coins_desc">Increase the coins \nyou start with by 10</string>
     <string name="damage_desc">Increase your\ndamage by 20%</string>
@@ -70,5 +71,11 @@
     <!-- Treasure -->
     <string name="treasure_desc">Tap to open your treasure chest!</string>
     <string name="replace">Replace</string>
+    <string name="options">Options</string>
+    <string name="clear_data">Clear Data</string>
+    <string name="title">Title</string>
+    <string name="exit_menu">Exit Menu</string>
+
+    <!-- Options Menu -->
 
 </resources>

@@ -29,7 +29,8 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="@string/game_over"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="@dimen/header_margin_from_top"
+            android:layout_marginBottom="5dp"
             style="@style/button_text"/>
 
         <TextView
@@ -37,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:gravity="center"
             style="@style/description_text"/>
 
@@ -56,12 +57,13 @@
             android:layout_width="wrap_content">
             <ImageButton
                 android:id="@+id/dialog_upgrade_exit_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/button_long_wd"
+                android:layout_height="@dimen/button_ht"
+                android:scaleType="fitXY"
                 android:layout_centerHorizontal="true"
                 android:background="@null"
                 android:gravity="center"
-                android:src="@drawable/button_medium"
+                android:src="@drawable/button_long"
                 android:importantForAccessibility="no" />
             <TextView
                 android:text="@string/return_to_title"
@@ -72,8 +74,7 @@
                 android:gravity="center"
                 android:layout_alignTop="@id/dialog_upgrade_exit_button"
                 android:layout_alignBottom="@id/dialog_upgrade_exit_button"
-                style="@style/button_text"
-                android:textSize="50sp"/>
+                style="@style/button_text"/>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

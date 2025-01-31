@@ -18,8 +18,8 @@
     <!--Dialog Box -->
     <RelativeLayout
         android:id="@+id/dialog_bubble"
-        android:layout_width="500dp"
-        android:layout_height="350dp"
+        android:layout_width="@dimen/dialog_bubble_wd"
+        android:layout_height="@dimen/dialog_bubble_ht"
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/shop_shelf"
@@ -48,12 +48,12 @@
         android:importantForAccessibility="no" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/shopkeep_wd"
+        android:layout_height="@dimen/shopkeep_ht"
         android:layout_above="@id/shop_space"
         android:src="@drawable/shop_keeper"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="150dp"
+        android:layout_marginEnd="@dimen/shopkeep_margin"
         android:importantForAccessibility="no"
         />
 
@@ -85,8 +85,8 @@
                 tools:ignore="SpeakableTextPresentCheck" />
             <ImageView
                 android:id="@+id/item_pricebox_0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/price_box_wd"
+                android:layout_height="@dimen/price_box_ht"
                 android:layout_below="@id/item_button_0"
                 android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"
@@ -119,8 +119,8 @@
                 android:background="@null"/>
             <ImageView
                 android:id="@+id/item_pricebox_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/price_box_wd"
+                android:layout_height="@dimen/price_box_ht"
                 android:layout_below="@id/item_button_1"
                 android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"
@@ -152,8 +152,8 @@
                 android:background="@null"/>
             <ImageView
                 android:id="@+id/item_pricebox_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/price_box_wd"
+                android:layout_height="@dimen/price_box_ht"
                 android:layout_below="@id/item_button_2"
                 android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"
@@ -175,10 +175,11 @@
     <!--Buy button-->
     <ImageButton
         android:id="@+id/item_buy_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/button_medium_wd"
+        android:layout_height="@dimen/button_ht"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/shop_buttons_root"
+        android:scaleType="fitXY"
         android:src="@drawable/button_medium_inactive"
         android:gravity="center"
         android:background="@null"
@@ -208,8 +209,9 @@
             android:id="@+id/exit_button"
             android:background="@null"
             android:src="@drawable/button_short"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/button_short_wd"
+            android:layout_height="@dimen/button_ht"
+            android:scaleType="fitXY"
             android:importantForAccessibility="no"
             android:layout_marginEnd="@dimen/margin_from_bottom"/>
         <TextView
@@ -230,8 +232,9 @@
             android:id="@+id/inventory_button"
             android:background="@null"
             android:src="@drawable/button_medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/button_medium_wd"
+            android:layout_height="@dimen/button_ht"
+            android:scaleType="fitXY"
             android:importantForAccessibility="no"
             android:layout_toEndOf="@id/exit_button"/>
         <TextView

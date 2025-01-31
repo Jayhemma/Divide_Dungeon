@@ -6,6 +6,7 @@
     <dimen name="button_medium_wd">384dp</dimen>
     <dimen name="button_long_wd">512dp</dimen>
     <dimen name="margin_from_bottom">20dp</dimen>
+    <dimen name="header_margin_from_top">20dp</dimen>
 
 
     <dimen name="path_list_margins">10dp</dimen>
@@ -20,8 +21,34 @@
     <dimen name="weapon_width">384dp</dimen>
     <dimen name="weapon_height">128dp</dimen>
 
+    <!-- content_title -->
     <dimen name="logo_wd">500dp</dimen>
     <dimen name="token_box_wd">468dp</dimen>
     <dimen name="token_box_ht">104dp</dimen>
+
+    <!-- content_shop -->
+    <dimen name="dialog_bubble_wd">500dp</dimen>
+    <dimen name="dialog_bubble_ht">350dp</dimen>
+    <dimen name="shopkeep_wd">132dp</dimen>
+    <dimen name="shopkeep_ht">212dp</dimen>
+    <dimen name="shopkeep_margin">150dp</dimen>
+    <dimen name="price_box_wd">132dp</dimen>
+    <dimen name="price_box_ht">52dp</dimen>
+
+    <!-- content_treasure -->
+    <dimen name="treasure_wd">492dp</dimen>
+    <dimen name="treasure_ht">392dp</dimen>
+    <dimen name="treasure_top_margin">-150dp</dimen>
+
+    <!-- dialog_options -->
+    <dimen name="options_buttons_margin">15dp</dimen>
+    <dimen name="mic_toggle_size">50sp</dimen>
+    <dimen name="sound_toggle_sound">50sp</dimen>
+
+    <!-- dialog_show_weapons -->
+    <dimen name="weapon_list_ht">550dp</dimen>
+    <dimen name="weapon_window_start_from_top">180dp</dimen>
+    <dimen name="weapon_root_margin">40dp</dimen>
+    <dimen name="upgrade_window_start_from_top">60dp</dimen>
 
 </resources>

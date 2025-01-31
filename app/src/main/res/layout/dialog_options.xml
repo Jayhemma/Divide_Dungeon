@@ -19,127 +19,151 @@
         android:id="@+id/options_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Options"
+        android:text="@string/options"
         android:textStyle="bold"
         android:layout_alignTop="@id/options_bg"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/header_margin_from_top"
         android:gravity="center_horizontal"
         style="@style/button_text"/>
 
-    <!-- Toggle Mic Button -->
-    <ImageButton
-        android:id="@+id/toggle_mic"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/options_title"
-        android:layout_centerHorizontal="true"
-        android:background="@null"
+        android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/button_medium"
-        android:importantForAccessibility="no" />
-    <TextView
-        android:id="@+id/mic_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:importantForAccessibility="no"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_alignTop="@id/toggle_mic"
-        android:layout_alignBottom="@id/toggle_mic"
-        style="@style/button_text"
-        android:textSize="50sp"/>
+        android:layout_centerInParent="true">
 
-    <!-- Toggle Sound Button -->
-    <ImageButton
-        android:id="@+id/toggle_sound"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toggle_mic"
-        android:layout_centerHorizontal="true"
-        android:background="@null"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/button_medium"
-        android:importantForAccessibility="no" />
-    <TextView
-        android:id="@+id/sound_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:importantForAccessibility="no"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_alignTop="@id/toggle_sound"
-        android:layout_alignBottom="@id/toggle_sound"
-        style="@style/button_text"
-        android:textSize="50sp"/>
+        <!-- Toggle Mic Button -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/toggle_mic"
+                android:layout_width="@dimen/button_medium_wd"
+                android:layout_height="@dimen/button_ht"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:gravity="center"
+                android:layout_marginVertical="@dimen/options_buttons_margin"
+                android:src="@drawable/button_medium"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:id="@+id/mic_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:gravity="center"
+                android:layout_alignTop="@id/toggle_mic"
+                android:layout_alignBottom="@id/toggle_mic"
+                android:layout_centerHorizontal="true"
+                style="@style/button_text"
+                android:textSize="@dimen/mic_toggle_size"/>
+        </RelativeLayout>
 
-    <!-- Toggle Sound Button -->
-    <ImageButton
-        android:id="@+id/clear_data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toggle_sound"
-        android:layout_centerHorizontal="true"
-        android:background="@null"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/button_medium"
-        android:importantForAccessibility="no" />
-    <TextView
-        android:text="Clear Data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:importantForAccessibility="no"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_alignTop="@id/clear_data"
-        android:layout_alignBottom="@id/clear_data"
-        style="@style/button_text"/>
+        <!-- Toggle Sound Button -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/toggle_sound"
+                android:layout_width="@dimen/button_medium_wd"
+                android:layout_height="@dimen/button_ht"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:gravity="center"
+                android:layout_marginVertical="@dimen/options_buttons_margin"
+                android:src="@drawable/button_medium"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:id="@+id/sound_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_alignTop="@id/toggle_sound"
+                android:layout_alignBottom="@id/toggle_sound"
+                style="@style/button_text"
+                android:textSize="@dimen/sound_toggle_sound"/>
+        </RelativeLayout>
 
-    <!-- Title -->
-    <ImageButton
-        android:id="@+id/return_to_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/clear_data"
-        android:layout_centerHorizontal="true"
-        android:background="@null"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/button_medium"
-        android:importantForAccessibility="no" />
-    <TextView
-        android:text="Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:importantForAccessibility="no"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_alignTop="@id/return_to_title"
-        android:layout_alignBottom="@id/return_to_title"
-        style="@style/button_text"/>
+        <!-- Toggle Sound Button -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/clear_data"
+                android:layout_width="@dimen/button_medium_wd"
+                android:layout_height="@dimen/button_ht"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:gravity="center"
+                android:layout_marginVertical="@dimen/options_buttons_margin"
+                android:src="@drawable/button_medium"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:text="@string/clear_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_alignTop="@id/clear_data"
+                android:layout_alignBottom="@id/clear_data"
+                style="@style/button_text"/>
+        </RelativeLayout>
 
-    <!-- Exit Button -->
-    <ImageButton
-        android:id="@+id/exit_options"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/return_to_title"
-        android:layout_centerHorizontal="true"
-        android:background="@null"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/button_medium"
-        android:importantForAccessibility="no" />
-    <TextView
-        android:text="Exit Menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:importantForAccessibility="no"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_alignTop="@id/exit_options"
-        android:layout_alignBottom="@id/exit_options"
-        style="@style/button_text"/>
+        <!-- Title -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/return_to_title"
+                android:layout_width="@dimen/button_medium_wd"
+                android:layout_height="@dimen/button_ht"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:gravity="center"
+                android:layout_marginVertical="@dimen/options_buttons_margin"
+                android:src="@drawable/button_medium"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:text="@string/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_alignTop="@id/return_to_title"
+                android:layout_alignBottom="@id/return_to_title"
+                style="@style/button_text"/>
+        </RelativeLayout>
+
+        <!-- Exit Button -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/exit_options"
+                android:layout_width="@dimen/button_medium_wd"
+                android:layout_height="@dimen/button_ht"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:gravity="center"
+                android:layout_marginVertical="@dimen/options_buttons_margin"
+                android:src="@drawable/button_medium"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:text="@string/exit_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_alignTop="@id/exit_options"
+                android:layout_alignBottom="@id/exit_options"
+                style="@style/button_text"/>
+        </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>

@@ -18,8 +18,9 @@
     <!-- Treasure Chest -->
     <ImageButton
         android:id="@+id/treasure_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/treasure_wd"
+        android:layout_height="@dimen/treasure_ht"
+        android:scaleType="fitXY"
         android:layout_centerInParent="true"
         android:importantForAccessibility="no"
         android:src="@drawable/chest_closed"
@@ -49,21 +50,22 @@
         android:src="@drawable/debug"
         android:background="@null"
         android:visibility="invisible"
-        android:layout_marginBottom="-150dp"/>
+        android:layout_marginBottom="@dimen/treasure_top_margin"
+        />
 
     <!-- Replace Button-->
     <ImageButton
         android:id="@+id/wep_replace_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/treasure_button"
-        android:layout_alignBottom="@id/treasure_exit_button"
+        android:layout_width="@dimen/button_medium_wd"
+        android:layout_height="@dimen/button_ht"
+        android:scaleType="fitXY"
+        android:layout_above="@id/treasure_exit_button"
         android:layout_centerHorizontal="true"
         android:importantForAccessibility="no"
-        android:visibility="invisible"
         android:src="@drawable/button_medium"
         android:background="@null"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="20dp"
+        android:visibility="invisible"/>
     <TextView
         android:id="@+id/wep_replace_button_text"
         android:visibility="invisible"
@@ -79,8 +81,9 @@
     <!-- Exit Button -->
     <ImageButton
         android:id="@+id/treasure_exit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/button_short_wd"
+        android:layout_height="@dimen/button_ht"
+        android:scaleType="fitXY"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:importantForAccessibility="no"
