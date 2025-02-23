@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@null">
+
+    <!--Background Image-->
+    <ImageView
+        android:id="@+id/instructions_bg"
+        android:layout_width="@dimen/dialog_wd"
+        android:layout_height="@dimen/dialog_ht"
+        android:scaleType="fitXY"
+        android:layout_below="@id/header_plate"
+        android:layout_centerHorizontal="true"
+        android:importantForAccessibility="no"
+        android:layout_marginTop="@dimen/background_to_header"
+        android:src="@drawable/dialog_box"/>
+
+    <!-- Header background -->
+    <ImageView
+        android:id="@+id/header_plate"
+        android:layout_width="@dimen/button_medium_wd"
+        android:layout_height="@dimen/button_ht"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/header_margin_from_top"
+        android:src="@drawable/dialog_header"
+        android:scaleType="fitXY"
+        android:importantForAccessibility="no"/>
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/instructions"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_alignTop="@id/header_plate"
+        android:layout_alignBottom="@id/header_plate"
+        style="@style/button_text"/>
+
+    <!-- Screen Display -->
+    <ImageView
+        android:id="@+id/instruction_image"
+        android:layout_width="wrap_content"
+        android:layout_height="320dp"
+        android:layout_below="@id/header_plate"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/instruction_page_0"
+        android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true"
+        />
+
+    <!-- Instructions Text -->
+    <TextView
+        android:id="@+id/instructions_text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/instruction_image"
+        android:layout_marginTop="30dp"
+        android:text="@string/instruction_text_0"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        style="@style/description_text"
+        android:gravity="center"/>
+
+    <!-- Exit Button -->
+    <ImageButton
+        android:id="@+id/close_button"
+        android:layout_alignTop="@id/instructions_bg"
+        android:layout_margin="10dp"
+        android:layout_alignRight="@id/instructions_bg"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY"
+        android:background="@null"
+        android:gravity="center"
+        android:src="@drawable/button_exit"
+        android:importantForAccessibility="no" />
+
+    <!-- Previous and Next buttons-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_alignBottom="@id/instructions_bg"
+        android:layout_marginBottom="40dp"
+        android:gravity="center">
+        <RelativeLayout
+            android:layout_marginHorizontal="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/prev_button"
+                android:layout_width="@dimen/button_short_wd"
+                android:layout_height="@dimen/button_ht"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:gravity="center"
+                android:src="@drawable/button_short"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:text="@string/prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_alignTop="@id/prev_button"
+                android:layout_alignBottom="@id/prev_button"
+                style="@style/button_text"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginHorizontal="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/next_button"
+                android:layout_width="@dimen/button_short_wd"
+                android:layout_height="@dimen/button_ht"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:gravity="center"
+                android:src="@drawable/button_short"
+                android:importantForAccessibility="no" />
+            <TextView
+                android:text="@string/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_alignTop="@id/next_button"
+                android:layout_alignBottom="@id/next_button"
+                style="@style/button_text"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    </RelativeLayout>

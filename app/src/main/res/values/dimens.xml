@@ -5,9 +5,13 @@
     <dimen name="button_short_wd">256dp</dimen>
     <dimen name="button_medium_wd">384dp</dimen>
     <dimen name="button_long_wd">512dp</dimen>
+
+
     <dimen name="margin_from_bottom">20dp</dimen>
     <dimen name="header_margin_from_top">20dp</dimen>
-
+    <dimen name="background_to_header">-40dp</dimen>
+    <dimen name="dialog_wd">454dp</dimen>
+    <dimen name="dialog_ht">739dp</dimen>
 
     <dimen name="path_list_margins">10dp</dimen>
 
@@ -49,6 +53,12 @@
     <dimen name="weapon_list_ht">550dp</dimen>
     <dimen name="weapon_window_start_from_top">180dp</dimen>
     <dimen name="weapon_root_margin">40dp</dimen>
+
+    <!-- dialog_upgrade_shop -->
     <dimen name="upgrade_window_start_from_top">60dp</dimen>
+
+    <!-- InventoryFragment -->
+    <dimen name="util_text_large">50sp</dimen>
+    <dimen name="util_text_small">40sp</dimen>
 
 </resources>

@@ -176,9 +176,11 @@ public class InventoryFragment extends Fragment {
                 String sellString = getString(R.string.sell) + " " +    //Change button text
                         playerInventory.getItem(indexSelected).getName() + ": " +
                         playerInventory.getItem(indexSelected).getBuyPrice() + "C";
-                if (sellString.length()>=20) {              //Account for large string
-                    utilityText.setTextSize(40);
-                } else { utilityText.setTextSize(50);}
+                if (sellString.length()>=15) {              //Account for large string
+                    utilityText.setTextSize(getResources()
+                            .getDimension(R.dimen.util_text_small));
+                } else { utilityText.setTextSize(getResources()
+                        .getDimension(R.dimen.util_text_small));}
                 utilityText.setText(sellString);
 
                 useButton.setOnClickListener(event -> {

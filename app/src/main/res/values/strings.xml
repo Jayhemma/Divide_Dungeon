@@ -1,7 +1,7 @@
 <resources>
     <!-- Shared Stings -->
     <string name="app_name">Divide Dungeon</string>
-    <string name="build">0.1.1</string>
+    <string name="build">0.1.2 - justin.aul.000@gmail.com</string>
     <string name="exit">Exit</string>
     <string name="inventory">Inventory</string>
 
@@ -78,4 +78,29 @@
 
     <!-- Options Menu -->
 
+
+    <!-- Instructions-->
+    <string name="instructions">Instructions</string>
+    <string name="instruction_text_0">Press the play button to start a new game.
+        You may also spend tokens in the shop for permanent upgrades. Tokens are
+        earned by getting to higher floors.</string>
+    <string name="instruction_text_1">Tap on the answer box and type in the
+        answer to any of the questions listed on your weapons. You may also speak
+    the answer aloud if you have the mic enabled. The enemy will attack you each
+        time the timer reaches 0. You may use items in your inventory to restore
+        your health.</string>
+    <string name="instruction_text_2">In your inventory, you may use various
+        items to help you in combat. Tapping on an item will reveal its use. You
+        may then choose to use an item, or sell it later on.</string>
+    <string name="instruction_text_3">You may buy consumable items with gold, or
+        sell your items by entering your inventory and selecting them. When
+        tapping on an item, the shopkeeper will explain its use. Their prices are
+        listed beneath the item display.</string>
+    <string name="instruction_text_4">When you open a treasure, you will be
+        offered a new weapon! The problem type and damage can be compared to the
+        weapons in your inventory, and you may decide to swap out a weapon of your
+        choosing with the new weapon.
+        .</string>
+    <string name="next">Next</string>
+    <string name="prev">Prev.</string>
 </resources>

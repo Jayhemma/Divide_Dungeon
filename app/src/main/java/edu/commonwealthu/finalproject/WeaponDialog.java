@@ -80,10 +80,12 @@ public class WeaponDialog {
             dialogView.findViewById(R.id.replace_button_root).setVisibility(View.VISIBLE);
             replaceButton.setOnClickListener(event -> {
                 soundManager.playClickSound();
-                replaceWeapon();
-                soundManager.release();
-                dialog.dismiss();
-                ((MainActivity) activity).openTransitionFragment();
+                if (indexSelected != -1) {
+                    replaceWeapon();
+                    soundManager.release();
+                    dialog.dismiss();
+                    ((MainActivity) activity).openTransitionFragment();
+                }
             });
         }
 

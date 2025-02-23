@@ -77,7 +77,6 @@ public class BattleFragment extends Fragment {
     //For getting numeral inputs from the mic
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
     private SpeechRecognizer speechRecognizer;
-    private AudioManager audioManager;
 
 
     @Override
@@ -136,16 +135,18 @@ public class BattleFragment extends Fragment {
             ((MainActivity) activity).openInventoryFragment();
                 });
 
-        //Initialize AudioManager for muting the recognition sound
-        audioManager = ContextCompat.getSystemService(requireContext(), AudioManager.class);
 
-        //Check and request audio permissions first
-        if (ContextCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(requireActivity(), new String[]{
-                    Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO_PERMISSION);
-        } else {
-            initSpeechRecognizer();
+        //Check if mic is enabled
+        System.out.println(GameOptions.isMicActivated());
+        if (GameOptions.isMicActivated()) {
+            //Check and request audio permissions first
+            if (ContextCompat.checkSelfPermission(requireContext(),
+                    Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(requireActivity(), new String[]{
+                        Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO_PERMISSION);
+            } else {
+                initSpeechRecognizer();
+            }
         }
     }
 
@@ -215,10 +216,6 @@ public class BattleFragment extends Fragment {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1);
-
-        //Mute the system sounds
-        //muteSystemSounds(true);  //This mutes my soundManager as well
-        //Need another solution to mute the speech recognition sound, future build
 
         speechRecognizer.startListening(intent);
     }
@@ -586,21 +583,6 @@ public class BattleFragment extends Fragment {
         EditText answerBox = activity.findViewById(R.id.answer_input);
         answerBox.clearFocus();
         answerBox.setVisibility(View.GONE);
-    }
-
-    /**
-     * Mutes the system sounds to prevent the recognition beeping
-     * UNUSED IN CURRENT BUILD
-     * @param mute True to mute, false to unmute
-     */
-    private void muteSystemSounds(boolean mute) {
-        if (mute) {
-            audioManager.adjustStreamVolume(AudioManager.STREAM_SYSTEM,
-                    AudioManager.ADJUST_MUTE, 0);
-        } else {
-            audioManager.adjustStreamVolume(AudioManager.STREAM_SYSTEM,
-                    AudioManager.ADJUST_UNMUTE, 0);
-        }
     }
 
     /**

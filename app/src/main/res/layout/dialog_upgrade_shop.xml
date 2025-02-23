@@ -8,13 +8,27 @@
     <!--Background Image-->
     <ImageView
         android:id="@+id/upgrade_shop_bg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_width="@dimen/dialog_wd"
+        android:layout_height="@dimen/dialog_ht"
+        android:scaleType="fitXY"
+        android:layout_below="@id/header_plate"
         android:layout_centerHorizontal="true"
         android:importantForAccessibility="no"
+        android:layout_marginTop="@dimen/background_to_header"
         android:src="@drawable/dialog_box"/>
 
+    <!-- Header background -->
+    <ImageView
+        android:id="@+id/header_plate"
+        android:layout_width="@dimen/button_medium_wd"
+        android:layout_height="@dimen/button_ht"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/header_margin_from_top"
+        android:src="@drawable/dialog_header"
+        android:scaleType="fitXY"
+        android:importantForAccessibility="no"/>
+
+    <!-- Header -->
     <TextView
         android:id="@+id/dialog_upgrade_title"
         android:layout_width="wrap_content"
@@ -22,14 +36,17 @@
         android:textStyle="bold"
         android:text="@string/upgrade_shop"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/header_margin_from_top"
-        style="@style/button_text"/>
+        android:gravity="center"
+        android:layout_alignTop="@id/header_plate"
+        android:layout_alignBottom="@id/header_plate"
+        style="@style/button_text"
+        android:textSize="@dimen/sound_toggle_sound"/>
 
     <LinearLayout
         android:id="@+id/dialog_new_game_root"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
-        android:layout_below="@id/dialog_upgrade_title"
+        android:layout_alignTop="@id/upgrade_shop_bg"
         android:layout_marginTop="@dimen/upgrade_window_start_from_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -31,6 +31,8 @@ public class TransitionFragment extends Fragment {
     Activity activity;
     SoundManager soundManager;      //For playing sounds effects
 
+    int pathCount = 0;              //Tests if paths already exists if > 0.
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.content_transition, container, false);
@@ -51,6 +53,10 @@ public class TransitionFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         activity = getActivity();
+
+        //Save the game every time a path screen is opened.
+        assert activity != null;
+        ((MainActivity) activity).saveData();
 
         //Set up background
         ImageView background = activity.findViewById(R.id.transition_backgroundImage);
@@ -82,17 +88,20 @@ public class TransitionFragment extends Fragment {
         roomNames[2] = activity.findViewById(R.id.path_2_name);
 
         //Generate number of rooms to create, between 1 and 3.
+        //If paths were previously generated, don't calculate new pathCount.
+        pathCount = pathCount > 0 ? pathCount : new Random().nextInt(3) + 1;
+
+        //If array doesn't already exist, create new array of type RoomType.
+        types = types != null ? types : new MainActivity.RoomType[pathCount];
+
         //Set the buttons, their size, and their functionality.
-        int pathCount = new Random().nextInt(3)+1;
-        types = new MainActivity.RoomType[pathCount];   //Pass the list of room types
-        int displayWidth = getResources().getDisplayMetrics().widthPixels;  //Screen width
-        displayWidth = (displayWidth) / pathCount;         //Dynamic button width
-        displayWidth = Math.min(displayWidth, 256);         //256 is native size
+        int displayMetrics = getResources().getDisplayMetrics().widthPixels;  //Screen width
+        displayMetrics = (displayMetrics) / pathCount;         //Dynamic button width
+        displayMetrics = Math.min(displayMetrics, 256);         //256 is native size
         for (int i = 0; i < pathCount; i++) {
             paths[i].setVisibility(View.VISIBLE);
-            buttons[i].getLayoutParams().width = displayWidth;
-            //noinspection SuspiciousNameCombination
-            buttons[i].getLayoutParams().height = displayWidth;
+            buttons[i].getLayoutParams().width = displayMetrics;
+            buttons[i].getLayoutParams().height = displayMetrics;
             buttons[i].setScaleType(ImageView.ScaleType.FIT_XY);
             buttons[i].requestLayout();
             generateRoom(buttons[i], roomNames[i], i);
@@ -113,6 +122,12 @@ public class TransitionFragment extends Fragment {
      * @param index The index of the room in the array
      */
     private void generateRoom(ImageButton button, TextView roomName, int index) {
+        //Check if rooms already exist. Skip if not.
+        if (types[index] != null) {
+            generateButtonAndName(button, roomName, types[index]);
+            return;
+        }
+
         //Generate the room type
         MainActivity.RoomType[] _types = {
                 MainActivity.RoomType.TREASURE,

@@ -17,7 +17,7 @@ import androidx.appcompat.app.AlertDialog;
  * @author Justin Aul
  */
 public class GameOptions {
-    private static boolean micActivated = true;
+    private static boolean micActivated = false;
     private static boolean soundEnabled = true;
 
     //In a future build, add an about/how to play button and an exit app button
@@ -41,8 +41,7 @@ public class GameOptions {
     /**
      * Returns the mic status.
      */
-    public static boolean isMicActivated() {
-        return micActivated;
+    public static boolean isMicActivated() {return micActivated;
     }
 
     /**
@@ -116,6 +115,17 @@ public class GameOptions {
             soundManager.release();
             dialog.dismiss();
         });
+
+        //Instructions Button
+        ImageButton instructionsButton = dialogView.findViewById(R.id.instructions_button);
+        instructionsButton.setOnClickListener(event -> {
+            soundManager.playClickSound();
+            soundManager.release();
+            new InstructionDialog(_activity);
+            dialog.dismiss();
+        });
+
+
         dialog.show();
     }
 

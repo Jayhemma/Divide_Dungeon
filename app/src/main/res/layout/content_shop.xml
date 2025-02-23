@@ -47,11 +47,13 @@
         android:layout_centerInParent="true"
         android:importantForAccessibility="no" />
 
+    <!-- Shop Keeper -->
     <ImageView
         android:layout_width="@dimen/shopkeep_wd"
         android:layout_height="@dimen/shopkeep_ht"
         android:layout_above="@id/shop_space"
         android:src="@drawable/shop_keeper"
+        android:layout_alignLeft="@id/shop_space"
         android:layout_alignParentRight="true"
         android:layout_marginEnd="@dimen/shopkeep_margin"
         android:importantForAccessibility="no"

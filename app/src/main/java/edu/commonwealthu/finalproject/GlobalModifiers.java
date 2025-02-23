@@ -11,7 +11,7 @@ public class GlobalModifiers {
     public static boolean tempPower = false;        //Increases the player damage by 1.25
 
     //Permanent upgrades
-    public static int upgradeToken = 250;           //Tokens used to buy upgrades
+    public static int upgradeToken = 0;           //Tokens used to buy upgrades
     public static int playerMaxHealth = 3;          //The player's max health
     public static int startCoinsUpgrades = 0;       //Coins the player starts with
     public static int numAttackUpgrades = 0;        //Number of attack upgrades the player has
@@ -72,9 +72,12 @@ public class GlobalModifiers {
      * Resets all permanent modifiers to their default values
      */
     public static void clearData() {
-        int[] upgrades = getPermanentModifiers();
-        Arrays.fill(upgrades, 0);
+        upgradeToken = 0;
         playerMaxHealth = 3;
+        startCoinsUpgrades = 0;
+        numAttackUpgrades = 0;
+        numTimerUpgrades = 0;
+        numShopDiscounts = 0;
     }
 
 }

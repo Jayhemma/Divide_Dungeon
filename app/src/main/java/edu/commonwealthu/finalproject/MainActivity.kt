@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     private var UPGRADE_LIST = "upgradeList"
     private var SETTINGS = "settingsID"               //Keys used to save settings
     private var SETTINGS_MIC = "settingsMic"
-    private var SETTINGS_SOUND = "settingsMic"
+    private var SETTINGS_SOUND = "settingsSound"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,13 +56,15 @@ class MainActivity : AppCompatActivity() {
                 upgrades[i] = preferences.getInt(UPGRADE_LIST + i, 0)
             }
             GlobalModifiers.restorePermanentModifiers(upgrades)
+        } else {
+            GlobalModifiers.clearData()
         }
         preferences = getSharedPreferences(SETTINGS, MODE_PRIVATE)
         if (preferences != null) {
             //Mic is disabled
-            if (!preferences.getBoolean(SETTINGS_MIC, false)) {GameOptions.toggleMic()}
+            if (!preferences.getBoolean(SETTINGS_MIC, true)) {GameOptions.toggleMic()}
             //If sound is disabled
-            if (!preferences.getBoolean(SETTINGS_SOUND, false)) {GameOptions
+            if (!preferences.getBoolean(SETTINGS_SOUND, true)) {GameOptions
                 .toggleSound()}
         }
 
@@ -233,7 +235,7 @@ class MainActivity : AppCompatActivity() {
 
         val heartList : LinearLayout = this.findViewById(R.id.heart_list)
         heartList.removeAllViews()              //Delete hearts before creating more.
-        val factor = this.resources.displayMetrics.density; //Get density for params
+        val factor = this.resources.displayMetrics.density //Get density for params
         val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,(factor*32).toInt())
         params.setMargins(5,0,0,0)
@@ -252,10 +254,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Saves instance of the game
+     * When app is vulnerable to being destroyed, save the data
      */
     public override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        saveData()
+    }
+
+    /**
+     * Save the game
+     */
+    fun saveData() {
         val permanentValues = GlobalModifiers.getPermanentModifiers()
         var preferences = getSharedPreferences(PERMANENT_UPGRADES, MODE_PRIVATE)
         var editor = preferences.edit()

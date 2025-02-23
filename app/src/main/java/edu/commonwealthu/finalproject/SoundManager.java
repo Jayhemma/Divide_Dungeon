@@ -7,7 +7,8 @@ import android.media.SoundPool;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Provides game-related sound effects to an activity.
+ * Provides game-related sound effects to an activity. Edited from Drue Coles lecture
+ * code.
  * @author Justin Aul
  */
 public class SoundManager {
@@ -20,7 +21,7 @@ public class SoundManager {
      */
     public SoundManager(Context context) {
         AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                .setUsage(AudioAttributes.USAGE_GAME)
                 .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                 .build();
 

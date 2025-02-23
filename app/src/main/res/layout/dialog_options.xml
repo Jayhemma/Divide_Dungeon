@@ -8,24 +8,52 @@
     <!--Background Image-->
     <ImageView
         android:id="@+id/options_bg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_width="@dimen/dialog_wd"
+        android:layout_height="@dimen/dialog_ht"
+        android:scaleType="fitXY"
+        android:layout_below="@id/header_plate"
         android:layout_centerHorizontal="true"
         android:importantForAccessibility="no"
+        android:layout_marginTop="@dimen/background_to_header"
         android:src="@drawable/dialog_box"/>
 
+    <!-- Header background -->
+    <ImageView
+        android:id="@+id/header_plate"
+        android:layout_width="@dimen/button_medium_wd"
+        android:layout_height="@dimen/button_ht"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/header_margin_from_top"
+        android:src="@drawable/dialog_header"
+        android:scaleType="fitXY"
+        android:importantForAccessibility="no"/>
+
+    <!-- Header -->
     <TextView
         android:id="@+id/options_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/options"
         android:textStyle="bold"
-        android:layout_alignTop="@id/options_bg"
+        android:layout_alignTop="@id/header_plate"
+        android:layout_alignBottom="@id/header_plate"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/header_margin_from_top"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         style="@style/button_text"/>
+
+    <!-- Exit Button -->
+    <ImageButton
+        android:id="@+id/exit_options"
+        android:layout_alignTop="@id/options_bg"
+        android:layout_margin="10dp"
+        android:layout_alignRight="@id/options_bg"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY"
+        android:background="@null"
+        android:gravity="center"
+        android:src="@drawable/button_exit"
+        android:importantForAccessibility="no" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -145,7 +173,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageButton
-                android:id="@+id/exit_options"
+                android:id="@+id/instructions_button"
                 android:layout_width="@dimen/button_medium_wd"
                 android:layout_height="@dimen/button_ht"
                 android:scaleType="fitXY"
@@ -155,15 +183,16 @@
                 android:src="@drawable/button_medium"
                 android:importantForAccessibility="no" />
             <TextView
-                android:text="@string/exit_menu"
+                android:text="@string/instructions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:importantForAccessibility="no"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
-                android:layout_alignTop="@id/exit_options"
-                android:layout_alignBottom="@id/exit_options"
+                android:layout_alignTop="@id/instructions_button"
+                android:layout_alignBottom="@id/instructions_button"
                 style="@style/button_text"/>
         </RelativeLayout>
     </LinearLayout>
+
 </RelativeLayout>

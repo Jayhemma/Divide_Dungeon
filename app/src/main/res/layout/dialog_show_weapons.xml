@@ -9,34 +9,53 @@
     <!--Background Image-->
     <ImageView
         android:id="@+id/weapon_bg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_width="@dimen/dialog_wd"
+        android:layout_height="@dimen/dialog_ht"
+        android:scaleType="fitXY"
+        android:layout_below="@id/header_plate"
         android:layout_centerHorizontal="true"
         android:importantForAccessibility="no"
+        android:layout_marginTop="@dimen/background_to_header"
         android:src="@drawable/dialog_box"/>
 
+    <!-- Header background -->
+    <ImageView
+        android:id="@+id/header_plate"
+        android:layout_width="@dimen/button_medium_wd"
+        android:layout_height="@dimen/button_ht"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/header_margin_from_top"
+        android:src="@drawable/dialog_header"
+        android:scaleType="fitXY"
+        android:importantForAccessibility="no"/>
+
+    <!-- Header -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/weapons"
         android:textStyle="bold"
-        android:layout_marginTop="@dimen/header_margin_from_top"
+        android:gravity="center"
+        android:layout_alignTop="@id/header_plate"
+        android:layout_alignBottom="@id/header_plate"
         style="@style/button_text"/>
 
+    <!-- Weapon Description -->
     <TextView
         android:id="@+id/show_weapons_description"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@id/weapon_bg"
         android:layout_marginTop="@dimen/weapon_window_start_from_top"
         android:text="@string/weapons_menu_desc"
         android:textStyle="bold"
+        android:layout_centerHorizontal="true"
         style="@style/description_text"
         android:gravity="center"/>
 
     <LinearLayout
+    android:layout_centerHorizontal="true"
     android:id="@+id/show_weapons_root"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -142,7 +161,6 @@
             android:layout_alignTop="@id/close_button"
             android:layout_alignBottom="@id/close_button"
             style="@style/button_text"/>
-
     </RelativeLayout>
 
 
