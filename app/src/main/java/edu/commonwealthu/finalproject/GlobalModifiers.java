@@ -10,12 +10,16 @@ public class GlobalModifiers {
     public static boolean tempSlow = false;         //Slows down the enemy attacks by 1.5
     public static boolean tempPower = false;        //Increases the player damage by 1.25
 
-    //Permanent upgrades
-    public static int upgradeToken = 0;           //Tokens used to buy upgrades
+    //Permanent upgrades, modified by TitleFragment shop
+    public static int upgradeToken = 0;             //Tokens used to buy upgrades
     public static int playerMaxHealth = 3;          //The player's max health
+                                                    //Applied in Player, accessed
+                                                    //to create toolbar in MainActivity
     public static int startCoinsUpgrades = 0;       //Coins the player starts with
     public static int numAttackUpgrades = 0;        //Number of attack upgrades the player has
+                                                    //Applied in BattleFragment
     public static int numTimerUpgrades = 0;         //Number of timer upgrades the player has
+                                                    //Applied in EnemyBuilder
     public static int numShopDiscounts = 0;         //Number of discount upgrades
 
     //Weapon effects if I have time to implement them

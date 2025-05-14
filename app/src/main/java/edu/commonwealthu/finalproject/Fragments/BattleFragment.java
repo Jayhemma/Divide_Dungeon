@@ -9,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -21,6 +20,8 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -57,22 +58,26 @@ public class BattleFragment extends Fragment {
 
     Activity activity;
     Player player;
-    Enemy enemy;
-    TextView timer;
-    int attackTimer;                //The time between enemy attacks
-    Handler timerHandler;
-    int displayTimer = -5;          //For use in displaying the timer
-    int difficulty;                 //The same as the room number
-    ProgressBar healthBar;
-    ImageView[] weaponSprites;
-    TextView[] weaponTexts;
+    private Enemy enemy;
+    private TextView timer;
+    private int attackTimer;                //The time between enemy attacks
+    private Handler timerHandler;
+    private int displayTimer = -5;          //For use in displaying the timer
+    private int difficulty;                 //The same as the room number
+    private ProgressBar healthBar;
+    private ImageView[] weaponSprites;
+    private TextView[] weaponTexts;
 
-    boolean slowedCondition = false;//Extracted from the GlobalModifiers class
+    private Animation AnimEnemyDamage;      //Animation when enemy takes damage
+    private Animation animTextScroll;       //Animation for rewards and damage scrolling
+    private Animation animEnemyFade;        //Animation for enemy being defeated
+
+    private boolean slowedCondition = false;//Extracted from the GlobalModifiers class
                                     //In honesty I don't remember why I made this separate
                                     //I think it was done prior to making
                                     //GlobalModifiers a static class.
 
-    SoundManager soundManager;      //For playing sounds effects
+    private SoundManager soundManager;      //For playing sounds effects
 
     //For getting numeral inputs from the mic
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
@@ -127,6 +132,7 @@ public class BattleFragment extends Fragment {
         initEnemyDisplay();                     //Display enemy
         initAnswerBox();                        //Initialize answer box
         initSetQuestions();                     //Generate questions
+        initAnimations();                       //Initialize animations
 
         //Set up open inventory button
         ImageButton openInventory = activity.findViewById(R.id.open_inventory);
@@ -148,6 +154,12 @@ public class BattleFragment extends Fragment {
                 initSpeechRecognizer();
             }
         }
+    }
+
+    private void initAnimations() {
+        AnimEnemyDamage = AnimationUtils.loadAnimation(activity, R.anim.enemy_damage);
+        animTextScroll = AnimationUtils.loadAnimation(activity, R.anim.text_scroll);
+        animEnemyFade = AnimationUtils.loadAnimation(activity, R.anim.enemy_fade);
     }
 
     /**
@@ -267,9 +279,8 @@ public class BattleFragment extends Fragment {
      * Initializes the attack timer. For game functionality.
      */
     private void initAttackTimer() {
-        if (displayTimer == -5) {
+        if (displayTimer == -5) {   //If displayTimer is initialization value
             displayTimer = enemy.attackInterval();
-            displayTimer += (GlobalModifiers.numTimerUpgrades * 5); //Permanent timer upgrades
         }
         attackTimer = displayTimer * 1000;
         timerHandler = new Handler();
@@ -392,7 +403,6 @@ public class BattleFragment extends Fragment {
             displayTimer--;
             if (displayTimer <= 0) {
                 displayTimer = enemy.attackInterval();
-                displayTimer += (GlobalModifiers.numTimerUpgrades * 5);
                 if (GlobalModifiers.tempSlow) {displayTimer *= 1.5;}
             }
             timer = activity.findViewById(R.id.attack_timer);
@@ -445,19 +455,43 @@ public class BattleFragment extends Fragment {
      * @param _damage The amount of damage to deal
      */
     private void enemyTakeDamage(int _damage) {
+        int damage = _damage;
+
         //Play the damage sound
         soundManager.playAttackSound();
 
-        int damage = _damage;
-        if (GlobalModifiers.tempPower) {    //Boost from power potion
+        //Apply power potion
+        if (GlobalModifiers.tempPower) {
             damage =(int)(damage * 1.5);
         }
+
+        //Apply damage upgrades
         damage = GlobalModifiers.numAttackUpgrades != 0 ?
                 (int)(damage * (GlobalModifiers.numAttackUpgrades * 1.2)) : damage;
-        //Play an animation
+
+        //Squish animation on enemy take damage
+        ImageView enemyBodyBottom = activity.findViewById(R.id.display_enemy_bottom);
+        ImageView enemyBodyTop = activity.findViewById(R.id.display_enemy_top);
+        ImageView enemyHat = activity.findViewById(R.id.display_enemy_hat);
+        enemyBodyBottom.startAnimation(AnimEnemyDamage);
+        enemyBodyTop.startAnimation(AnimEnemyDamage);
+        enemyHat.startAnimation(AnimEnemyDamage);
+
+        //Text scroll for damage animation
+        String displayText = ("Hit for " + damage + " damage!");
+        showScrollText(displayText);
+
         enemy.takeDamage(damage);
         healthBar.setProgress(enemy.getHealth());
-        if (enemy.isDead()) {enemyDefeated();}
+        //Engage the defeated enemy process after 1 second to let animations finish
+        if (enemy.isDead()) {
+            //Stop timers
+            timerHandler.removeCallbacks(attackRunnable);
+            timerHandler.removeCallbacks(timerRunnable);
+
+            //Move to end combat sequence
+            new Handler(Looper.getMainLooper()).postDelayed(this::enemyDefeated, 1000);
+        }
     }
 
     /**
@@ -511,7 +545,16 @@ public class BattleFragment extends Fragment {
      * Called when the enemy is defeated.
      */
     private void enemyDefeated() {
-        //Animate the enemy fading a future build
+        //Make enemy fade away
+        ImageView enemyBodyBottom = activity.findViewById(R.id.display_enemy_bottom);
+        ImageView enemyBodyTop = activity.findViewById(R.id.display_enemy_top);
+        ImageView enemyHat = activity.findViewById(R.id.display_enemy_hat);
+        enemyBodyBottom.startAnimation(animEnemyFade);
+        enemyBodyTop.startAnimation(animEnemyFade);
+        enemyHat.startAnimation(animEnemyFade);
+        //After enemy fades, hide all unused elements
+        new Handler(Looper.getMainLooper()).postDelayed(this::hideElements, 1000);
+
 
         //Disable inventory button (Prevents crashing if opening after death)
         ImageButton openInventory = activity.findViewById(R.id.open_inventory);
@@ -521,18 +564,12 @@ public class BattleFragment extends Fragment {
         EditText answerBox = activity.findViewById(R.id.answer_input);
         answerBox.setFocusable(false);
 
-        //Hide all unused elements
-        new Handler(Looper.getMainLooper()).postDelayed(this::hideElements, 1000);
-
-        //Stop timers
-        timerHandler.removeCallbacks(attackRunnable);
-        timerHandler.removeCallbacks(timerRunnable);
-
         //Reset temporary modifiers
         GlobalModifiers.refreshInstanceModifiers();
 
         //Add player coins
-        player.addCoins(enemy.getReward());
+        int coinReward = enemy.getReward();
+        player.addCoins(coinReward);
         ((MainActivity)activity).updateToolBar();
 
         //Calculate token reward, scales exponentially
@@ -542,11 +579,11 @@ public class BattleFragment extends Fragment {
         //For displaying tokens when game ends
         ((MainActivity)activity).addToTokenReward(tokenReward);
 
-        //Display the reward on screen, maybe use the same textview as damage and just
-        //animate it going up the screen?
-        //This won't be in the current build, same functionality can be achieved with
-        //toolbar stats
+        //Display the reward on screen
+        String displayText = "+ " + coinReward + " coins";
+        showScrollText(displayText);
 
+        //Move to next screen after displaying rewards
         new Handler(Looper.getMainLooper()).postDelayed(this::moveToTransition, 1000);
     }
 
@@ -555,6 +592,29 @@ public class BattleFragment extends Fragment {
      */
     private void moveToTransition() {
         ((MainActivity)activity).openTransitionFragment();
+    }
+
+
+    /**
+     * Displays text scrolling up the screen
+     * @param text The text to display
+     */
+    private void showScrollText(String text) {
+        TextView scrollText = activity.findViewById(R.id.scroll_text);
+        scrollText.setText(text);
+        scrollText.setVisibility(View.VISIBLE);
+        scrollText.startAnimation(animTextScroll);
+
+        //Turn invisible again after animation
+        new Handler(Looper.getMainLooper()).postDelayed(this::hideScrollText, 600);
+    }
+
+    /**
+     * Helper method to hide the scroll text after animation. Resets color parameters
+     */
+    private void hideScrollText() {
+        TextView scrollText = activity.findViewById(R.id.scroll_text);
+        scrollText.setVisibility(View.INVISIBLE);
     }
 
     /**
@@ -571,11 +631,6 @@ public class BattleFragment extends Fragment {
             weaponSprites[i].setVisibility(View.GONE);
             weaponTexts[i].setVisibility(View.GONE);
         }
-        timer.setVisibility(View.GONE);
-        //I think this lagging behind could look cool
-        //healthBar.setVisibility(View.GONE);
-        //TextView name = activity.findViewById(R.id.enemy_name);
-        //name.setVisibility(View.GONE);
         ImageButton openInventory = activity.findViewById(R.id.open_inventory);
         openInventory.setVisibility(View.GONE);
         TextView inventoryText = activity.findViewById(R.id.open_inventory_text);

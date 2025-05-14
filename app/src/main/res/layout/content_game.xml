@@ -233,4 +233,15 @@
         android:layout_alignBottom="@id/open_inventory"
         android:layout_alignStart="@id/open_inventory"
         android:layout_alignEnd="@id/open_inventory" />
+    <TextView
+        android:id="@+id/scroll_text"
+        android:text="debug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        android:gravity="center"
+        style="@style/button_text"
+        android:maxLines="2"/>
 </RelativeLayout>

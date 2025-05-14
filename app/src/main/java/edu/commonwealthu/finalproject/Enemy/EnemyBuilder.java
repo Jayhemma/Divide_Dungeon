@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
+import edu.commonwealthu.finalproject.GlobalModifiers;
 import edu.commonwealthu.finalproject.R;
 
 /**
@@ -31,7 +32,7 @@ public class EnemyBuilder {
     public EnemyBuilder(Context _context, int _difficulty) {
         difficulty = _difficulty;
         context = _context;
-        bodyType = 0; //random.nextInt(2);
+        bodyType = ThreadLocalRandom.current().nextInt(2);
     }
 
     /**
@@ -50,11 +51,11 @@ public class EnemyBuilder {
     @SuppressLint("UseCompatLoadingForDrawables")
     public Drawable genLowerSprite() {
         ArrayList<Drawable> spritePath = new ArrayList<>();
-        //I'm opting to use a switch statement here to leave room for adding more types
+        //Adds all available skin tones from bodyType selected
         try {
+            InputStream stream;
             switch (bodyType) {
                 case 0:
-                    InputStream stream;
                     stream = context.getAssets().open("enemy/enemy_lower_0_var_0.png");
                     spritePath.add(Drawable.createFromStream(stream, null));
                     stream = context.getAssets().open("enemy/enemy_lower_0_var_1.png");
@@ -63,6 +64,12 @@ public class EnemyBuilder {
                     spritePath.add(Drawable.createFromStream(stream, null));
                     break;
                 case 1:
+                    stream = context.getAssets().open("enemy/enemy_lower_1_var_0.png");
+                    spritePath.add(Drawable.createFromStream(stream, null));
+                    stream = context.getAssets().open("enemy/enemy_lower_1_var_1.png");
+                    spritePath.add(Drawable.createFromStream(stream, null));
+                    stream = context.getAssets().open("enemy/enemy_lower_1_var_2.png");
+                    spritePath.add(Drawable.createFromStream(stream, null));
                     break;
             }
             return spritePath.get(ThreadLocalRandom.current().nextInt(spritePath.size()));
@@ -83,9 +90,9 @@ public class EnemyBuilder {
         ArrayList<Drawable> spritePath = new ArrayList<>();
         //I'm opting to use a switch statement here to leave room for adding more types
         try {
+            InputStream stream;
             switch (bodyType) {
                 case 0:
-                    InputStream stream;
                     stream = context.getAssets().open("enemy/enemy_upper_0_var_0.png");
                     spritePath.add(Drawable.createFromStream(stream, null));
                     stream = context.getAssets().open("enemy/enemy_upper_0_var_1.png");
@@ -94,6 +101,10 @@ public class EnemyBuilder {
                     spritePath.add(Drawable.createFromStream(stream, null));
                     break;
                 case 1:
+                    stream = context.getAssets().open("enemy/enemy_upper_1_var_0.png");
+                    spritePath.add(Drawable.createFromStream(stream, null));
+                    stream = context.getAssets().open("enemy/enemy_upper_1_var_1.png");
+                    spritePath.add(Drawable.createFromStream(stream, null));
                     break;
             }
             return spritePath.get(ThreadLocalRandom.current().nextInt(spritePath.size()));
@@ -134,17 +145,17 @@ public class EnemyBuilder {
      * @return The attack speed in seconds
      */
     public int genSpeed() {
-        int retInt = 25; //Initialize at 30 seconds
+        int retInt = 30; //Initialize at 30 seconds
+        retInt += (GlobalModifiers.numTimerUpgrades * 5); //Add permanent timer upgrades
 
-        //Every 3 floors, the enemy may be up to 1 second faster
-        //Linear difficulty increase (29 - x/3)
-        int decreaseSpeed = 1 + difficulty/3;
+        //Every 2 floors, the enemy may be up to 1 second faster
+        //Linear difficulty increase (29 - x/2)
+        int decreaseSpeed = 1 + difficulty/2;
         //Note that I'm keeping this as an int, because I want automatic rounding.
 
         //The decrease speed is the maximum amount that may be decreased from cooldown
-        //On rooms 80+ this will become a problem. But the timer upgrade should fix
-        //this until a better method is found
-        return retInt - ThreadLocalRandom.current().nextInt(decreaseSpeed);
+        //Lowest speed amt is 5 seconds
+        return Math.max(5, (retInt - ThreadLocalRandom.current().nextInt(decreaseSpeed)));
     }
 
     /**

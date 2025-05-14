@@ -1,7 +1,7 @@
 <resources>
     <!-- Shared Stings -->
     <string name="app_name">Divide Dungeon</string>
-    <string name="build">0.1.2 - justin.aul.000@gmail.com</string>
+    <string name="build">0.1.3 - justin.aul.000@gmail.com</string>
     <string name="exit">Exit</string>
     <string name="inventory">Inventory</string>
 
